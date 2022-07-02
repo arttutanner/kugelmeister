@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=trackName\ startPin\ endPin
+comment0.target=BallTrackTimer(java.lang.String,\ com.pi4j.io.gpio.Pin,\ com.pi4j.io.gpio.Pin)
+comment1.params=
+comment1.target=void\ init()
+comment2.params=event
+comment2.target=void\ handleGpioPinDigitalStateChangeEvent(com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent)
+comment3.params=event
+comment3.target=void\ handleGpioPinDigitalStateChangeEvent(com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent)
+comment4.params=
+comment4.target=boolean\ isRaceActive()
+comment5.params=
+comment5.target=void\ startClock()
+comment6.params=
+comment6.target=void\ stopClock()
+numComments=7
