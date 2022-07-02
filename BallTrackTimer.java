@@ -9,7 +9,7 @@
 
 import com.pi4j.io.gpio.*;
 import com.pi4j.io.gpio.event.*;
-
+import java.util.*;
 
 public class BallTrackTimer
 {
@@ -22,15 +22,19 @@ public class BallTrackTimer
     
     private long lastResult;
     private String trackName;
-    private boolean activeRace;
+    private boolean isActive;
+    private String colorHex;
+    private Vector<Long> prevResults;
     
-    
-    public BallTrackTimer (String trackName, Pin startPin, Pin endPin) {
+    public BallTrackTimer (String trackName, String colorHex, Pin startPin, Pin endPin) {
         this.startPin = startPin;
         this.endPin = endPin;
         this.trackName = trackName;
-        this.activeRace = false;
+        this.isActive = false;
+        this.colorHex = colorHex;
+        this.prevResults = new Vector<>();
         init();
+
         
     }
     
@@ -69,21 +73,56 @@ public class BallTrackTimer
     }
     
     public boolean isRaceActive() {
-        return activeRace;
+        return isActive;
+    }
+    
+    
+    public String getColor() {
+        return colorHex;
     }
     
     protected void startClock() {
+        if (isActive) {
+            System.out.println("Cannot start, because we are already started");
+            return;
+        }
         System.out.println(trackName+ "clock started");
         timeAtStart = System.currentTimeMillis();
-        activeRace = true;
+        isActive = true;
     }
     
     protected void stopClock() {
-
+        if (!isActive) {
+            System.out.println("Cannot stop, since we haven't started.");
+            return;
+        }
         lastResult = System.currentTimeMillis()-timeAtStart;
-        System.out.println(trackName+ "clock stopped, time:"+lastResult);
-        activeRace=false;
+        System.out.println(trackName+ "clock stopped, time:"+formatAsTime(lastResult));
+        prevResults.add(lastResult);
+        isActive=false;
     }
     
+    public String getCurrent() {
+        if (!isActive) return null;
+        return formatAsTime(System.currentTimeMillis()-timeAtStart);
+    }
     
+    public String getName() {
+        return trackName;
+    }
+    
+    public String getPrev(int nth) {
+        if (prevResults.size()==0) return "--.--";
+        int pos = prevResults.size()-(nth+1);
+        if (pos<0) return "--.--";
+        return(formatAsTime(prevResults.get(pos)));
+    }
+    
+    private String formatAsTime(long millis) {
+        long secs = millis / 1000;
+        long dec = millis % 1000;
+        return ""+secs+"."+dec;
+    }
+    
+        
 }

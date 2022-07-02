@@ -45,8 +45,16 @@ public class KugelMeisterMain {
         // create gpio controller
         GPIO = GpioFactory.getInstance();
         trackTimers = new Vector<>();
-        trackTimers.add(new BallTrackTimer("Rata 1",RaspiPin.GPIO_26,RaspiPin.GPIO_20));
-  
+        trackTimers.add(new BallTrackTimer("Rata 1","0xFFCCCC",RaspiPin.GPIO_26,RaspiPin.GPIO_20));
+        trackTimers.add(new BallTrackTimer("Rata 2","0xCCFFCC",RaspiPin.GPIO_19,RaspiPin.GPIO_16));
+        trackTimers.add(new BallTrackTimer("Rata 3","0xCCCCFF",RaspiPin.GPIO_06,RaspiPin.GPIO_12));
+        trackTimers.add(new BallTrackTimer("Rata 4","0xFFCCFF",RaspiPin.GPIO_11,RaspiPin.GPIO_08));
+        trackTimers.add(new BallTrackTimer("Rata 5","0xCCFFFF",RaspiPin.GPIO_09,RaspiPin.GPIO_25));
+        trackTimers.add(new BallTrackTimer("Rata 6","0xFFFFCC",RaspiPin.GPIO_22,RaspiPin.GPIO_23));
+        
+        new KugelFrame();
+        
+        /*
         // keep program running until user aborts (CTRL-C)
         while(true) {
             try {
@@ -56,7 +64,7 @@ public class KugelMeisterMain {
                 e.printStackTrace();
             }
         }
-
+        */
         // stop all GPIO activity/threads by shutting down the GPIO controller
         // (this method will forcefully shutdown all GPIO monitoring threads and scheduled tasks)
         // gpio.shutdown();   <--- implement this method call if you wish to terminate the Pi4J GPIO controller
