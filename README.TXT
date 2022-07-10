@@ -1,12 +1,6 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
+PROJECT TITLE: KugelMeister 2000 pro
+PURPOSE OF PROJECT: Kajo Finjamboree ball racing timer
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+HOW TO START THIS PROJECT: Run on Rasperry Pi, wire the wires as in the code :) Java GPIO lib is needed.
+AUTHORS: Arttu Tanner
+
