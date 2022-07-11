@@ -46,8 +46,8 @@ public class KugelMeisterMain {
         GPIO = GpioFactory.getInstance();
         trackTimers = new Vector<>();
         trackTimers.add(new BallTrackTimer("Rata 1","0xFFCCCC",RaspiPin.GPIO_26,RaspiPin.GPIO_20));
-        trackTimers.add(new BallTrackTimer("Rata 2","0xCCFFCC",RaspiPin.GPIO_19,RaspiPin.GPIO_16));
-        trackTimers.add(new BallTrackTimer("Rata 3","0xCCCCFF",RaspiPin.GPIO_06,RaspiPin.GPIO_12));
+        trackTimers.add(new BallTrackTimer("Rata 2","0xCCFFCC",RaspiPin.GPIO_21,RaspiPin.GPIO_19));
+        trackTimers.add(new BallTrackTimer("Rata 3","0xCCCCFF",RaspiPin.GPIO_06,RaspiPin.GPIO_13));
         trackTimers.add(new BallTrackTimer("Rata 4","0xFFCCFF",RaspiPin.GPIO_11,RaspiPin.GPIO_08));
         trackTimers.add(new BallTrackTimer("Rata 5","0xCCFFFF",RaspiPin.GPIO_09,RaspiPin.GPIO_25));
         trackTimers.add(new BallTrackTimer("Rata 6","0xFFFFCC",RaspiPin.GPIO_22,RaspiPin.GPIO_23));

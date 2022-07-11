@@ -27,13 +27,13 @@ public class TrackPanel extends JPanel
         this.add(nameLbl,"wrap");
         
         curLbl = new JLabel("--.--");
-        curLbl.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 50));
+        curLbl.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 60));
         this.add(curLbl,"wrap");
         
         prevLbls = new Vector<>();
         for (int i=0; i<NUM_OF_PREVS; i++) {
             JLabel pl = new JLabel("##");
-            curLbl.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
+            pl.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
             prevLbls.add(pl);
             this.add(pl,"wrap");
         }

@@ -25,14 +25,21 @@ public class KugelFrame extends JFrame
 
         Container cont = this.getContentPane();
         cont.setLayout(new BorderLayout());
-
+        cont.setBackground(Color.WHITE);
         
         JPanel titlePanel = new JPanel();
-        titlePanel.setLayout(new MigLayout("al center"));
+        titlePanel.setBackground(Color.WHITE);
+        titlePanel.setLayout(new MigLayout("fill"));
 //        titlePanel.setBackground(Color.RED);
-        JLabel titleLbl = new JLabel("KugelMeister 2000 pro v.1.01");
-        titleLbl.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 110));
-        titlePanel.add(titleLbl);
+        ImageIcon kajoLogo = new ImageIcon("kajo_logo_200px.png");
+        
+
+        titlePanel.add(new JLabel(kajoLogo),"al left");
+        JLabel titleLbl = new JLabel(new ImageIcon("kugel_logo.png"));
+        titleLbl.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
+        titlePanel.add(titleLbl, "al center");
+        
+        titlePanel.add(new JLabel(new ImageIcon("tuuma_200px.png")),"al right");
         
         cont.add(titlePanel,BorderLayout.NORTH);
         trackPanels = new Vector<>();
